@@ -48,7 +48,7 @@ def answer_query(query, tables, history):
     model="gpt-3.5-turbo-1106",
     messages=messages,
     temperature=0.2,
-    stream=streaming
+    stream=True
   )
   answer = ""
   for chunk in response:
