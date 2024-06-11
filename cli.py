@@ -28,7 +28,7 @@ def run_cli():
   conversation_history = []
 
   while True:
-    user_query = input("You: ")
+    user_query = input("\nYou: ")
     if user_query.lower() in ['quit', 'exit']:
       print("Exiting...")
       break
@@ -37,4 +37,4 @@ def run_cli():
       print("OpenAI: ", end="", flush=True)
       for chunk in answer_query(user_query, all_tables, conversation_history):
         print(chunk, end="", flush=True)
-      print()
+      print("\n")
