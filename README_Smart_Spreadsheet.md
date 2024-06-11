@@ -67,6 +67,11 @@ OpenAI: The total sales for 2023 are ...
 
 To exit the interaction, type `quit` or `exit`.
 
+## Demo
+
+![2024-06-10 18 55 17](https://github.com/maumercado/Smart-Spreadsheet/assets/282004/f121d9c2-cb1c-4bd2-85c7-595a8d72a8a4)
+
+
 ## Directory Structure
 
 ```
