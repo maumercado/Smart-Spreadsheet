@@ -69,7 +69,7 @@ To exit the interaction, type `quit` or `exit`.
 
 ## Demo
 
-![2024-06-10 18 55 17](https://github.com/maumercado/Smart-Spreadsheet/assets/282004/f121d9c2-cb1c-4bd2-85c7-595a8d72a8a4)
+![ezgif-6-5504ccf339](https://github.com/maumercado/Smart-Spreadsheet/assets/282004/ae78d8f7-feaf-4824-b5b2-96b7a63d3c76)
 
 
 ## Directory Structure
