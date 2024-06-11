@@ -53,6 +53,14 @@ def handle_missing_values(df):
   df.fillna('missing', inplace=True)
   return df
 
+def format_currency(df):
+  for col in df.columns:
+    # Check if column contains numeric values
+    if pd.api.types.is_numeric_dtype(df[col]):
+        # Apply currency formatting
+      df[col] = df[col].apply(lambda x: "${:,.2f}".format(x) if pd.notnull(x) else x)
+  return df
+
 def remove_empty_rows_and_columns(df):
   """
   Remove empty rows and columns from a pandas dataframe.
@@ -82,6 +90,7 @@ def normalize_table(df):
   df = convert_data_types(df)
   df = handle_missing_values(df)
   df = remove_empty_rows_and_columns(df)
+  df = format_currency(df)
   return df
 
 def process_excel(file_path):
