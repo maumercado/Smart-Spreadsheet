@@ -36,7 +36,8 @@ def answer_query(query, tables, history):
   initial_message = {
     "role": "system",
     "content": (
-      f"You are a helpful accountant assistant. Based on the provided CSV data below, answer the user's questions. "
+      f"You are a helpful accountant assistant. Based on the provided CSV data below, answer the user's questions.\n\n"
+      f"The currency is in USD but you can ask the user to provide currency in any other format.\n\n"
       f"Provide detailed explanations and perform complex calculations if needed.\n\n{combined_csv}\n\n"
     )
   }
