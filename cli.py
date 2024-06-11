@@ -7,6 +7,7 @@ from openai_client import answer_query
 def run_cli():
   parser = argparse.ArgumentParser(description="Smart Spreadsheet AI CLI")
   parser.add_argument("-f", "--files", nargs='+', required=True, help="Excel files to process")
+  parser.add_argument("-s", "--streaming", action='store_true', help="Enable streaming response from OpenAI")
   args = parser.parse_args()
 
   for file_path in args.files:
@@ -32,6 +33,8 @@ def run_cli():
       print("Exiting...")
       break
     with yaspin(text="Generating answer...", color="cyan") as spinner:
-      response = answer_query(user_query, all_tables, conversation_history)
-      spinner.ok("✔")  # Mark the spinner as completed successfully
-      print(f"OpenAI: {response}")
+      spinner.hide()
+      print("OpenAI: ", end="", flush=True)
+      for chunk in answer_query(user_query, all_tables, conversation_history):
+        print(chunk, end="", flush=True)
+      print()
