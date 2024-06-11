@@ -1,59 +1,104 @@
-# Smart Spreadsheet
+# Smart Spreadsheet AI CLI
 
-## Introduction
+Smart Spreadsheet AI CLI is a command-line interface (CLI) tool that processes Excel files, normalizes their data, and allows users to interact with the data using OpenAI's language model. The tool is designed to help users query their Excel data conversationally.
 
-As a **Founding Senior Engineer** at Capix you will lead the the development of the Company’s technical vision and strategy, oversee all the technological development, and help develop and implement the product. This is a very critical role. It is paramount that you are a master of engineering able to ship great software fast. We’re looking for the 10Xers and this project helps us evaluate if you can get the job done. 
+## Features
 
-The project is open-ended. There is no single right answer, and you have complete creative freedom to solve the problem in whatever way you want.
+- Load and normalize Excel files
+- Interact with the data using natural language queries
+- Maintain conversation context for coherent interactions
+- Display loading spinners during processing and querying
 
-## Scenario
+## Requirements
 
-You are an engineer leading product development at Capix. We just received a request from a key client to build a system that can answer questions from Excel files. The timeline is tight. We have two days to develop this feature. How should we deliver this to our client?
+- Python 3.7 or above
+- The following Python libraries:
+  - `pandas`
+  - `openai`
+  - `python-dotenv`
+  - `yaspin`
+  - `argparse`
+
+## Installation
+
+1. **Clone the repository:**
+   ```sh
+   git clone https://github.com/maumercado/Smart-Spreadsheet.git
+   cd Smart-Spreadsheet
+   ```
+
+2. **Create and activate a virtual environment (optional but recommended):**
+   ```sh
+   python3 -m venv smartsheet
+   source smartsheet/bin/activate  # On Windows, use `smartsheet\Scripts\activate`
+   ```
+
+3. **Install the dependencies:**
+   ```sh
+   pip install -r requirements.txt
+   ```
+
+4. **Set up the OpenAI API key:**
+   - Create a `.env` file in the root directory of the project with the following content:
+     ```
+     OPENAI_API_KEY=your_openai_api_key
+     ```
+
+## Usage
+
+To use the CLI, run the `main.py` script with the required flags:
+
+```sh
+python main.py -f file1.xlsx file2.xlsx
+```
+
+### Example
+
+```sh
+python main.py -f data1.xlsx data2.xlsx
+```
+
+After processing the files, you can interact with the data by entering your queries in the console:
+
+```sh
+You: What is the total sales for 2023?
+OpenAI: The total sales for 2023 are ...
+```
+
+To exit the interaction, type `quit` or `exit`.
+
+## Demo
+
+![2024-06-10 18 55 17](https://github.com/maumercado/Smart-Spreadsheet/assets/282004/f121d9c2-cb1c-4bd2-85c7-595a8d72a8a4)
 
 
-In the repo, there are example Excel files that the client has shared with us. There are also some functions we developed to give you a head start, which you may or may not choose to use.  
+## Directory Structure
 
-## Goals
+```
+smart_spreadsheet_ai/
+├── main.py
+├── openai_client.py
+├── data_processing.py
+├── cli.py
+├── .env.example
+├── requirements.txt
+└── README.md
+```
 
-1. The algorithm should be able to parse and serialize each individual table in the Excel sheet `example_0.xlsx`.
-2. An AI chat function that should be able to answer basic question about the excel sheet, e.g. "What is the Total Cash and Cash Equivalent of Nov. 2023?" (No UI is needed)
-3. Let's broaden the functionality of the algorithm. Can you make it parse `example_1.xlsx` and `example_2.xlsx`?
-4. Let's make the AI more intelligent. Can you make it answer questions that need to be inferred like "What is the Total Cash and Cash Equivalent of Oct. AND Nov. of 2023 combined?"
-5. Now that we have a Smart Spreadsheet AI. Let's deploy it for our user to use!
+### File Descriptions
 
-## FAQ
-* **How long do I have to solve the problem?** 
+- `main.py`: Entry point of the application.
+- `openai_client.py`: Handles interaction with the OpenAI API.
+- `data_processing.py`: Handles data loading and normalization.
+- `cli.py`: Handles the command-line interface logic.
+- `.env.example`: Example `.env` file to set up the OpenAI API key.
+- `requirements.txt`: Lists all the dependencies for the project.
+- `README.md`: Project documentation.
 
-  * You have two days to sovle the problem. 
+## Contributing
 
-* **What tools, tech stack should I use?**
+Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
 
-  * Whatever tools you want. There are no particular requirements. And yes, you can use ChatGPT or nay other open source model and we encourage it.
+## License
 
-* **Is building a full-fledged frontend required?** 
-  * Would be great, but it's not required. Focus on your strengths.
-
-* **Do I have to achieve all the goals?** 
-
-  * We will be very impressed if you can! Do your best!
-
-* **How to submit?**
-
-  * Please fork the repo, and submit your solution in a branch of your own repo and share the link of your repo with us via email.
-
-## Evaluation Criteria
-
-1. **Functionality**: Ability to parse and serialize tables from provided Excel files, including generalizing the solution to handle multiple examples. The AI should answer both basic questions; advanced generalization and AI inference are considered a bonus.
-
-2. **Problem Solving and Creativity**: Systematic and effective approach to breaking down and addressing each part of the problem. Novel or creative solutions with innovative use of tools and techniques.
-  
-3. **Code Quality and Readability**: Clear, readable, and well-structured code with consistent naming conventions.
-
-4. **Algorithm Design and Efficiency**: Thoughtful and effective algorithm design, considering edge cases and using appropriate data structures. Efficient implementation in terms of time and space complexity.
-
-5. **Deployment and Usability**: Successful deployment of the solution with clear and detailed setup instructions. Consideration of user experience, ensuring the solution is user-friendly and accessible.
-
-## Remarks
-
-We appreicate the time you will devote to this project. We hope you enjoy this exercise!
-
+This project is licensed under the MIT License.
