@@ -13,7 +13,7 @@ try:
 except Exception as e:
   print("This requires an OpenAI API key, please set it in the .env file as 'OPENAI_API_KEY'. Error", e)
 
-def answer_query_stream(query, tables, history):
+def answer_query(query, tables, history):
   """
   Answer a query using the OpenAI chat model.
 
